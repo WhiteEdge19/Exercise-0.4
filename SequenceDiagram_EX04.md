@@ -6,8 +6,14 @@ participant B as Server
 
 A ->> B :HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
 activate B
-B -->> A : HTML code
+Note right of A:DATA Payload (note: test0) is send to SERVER in POST 
+
+Note right of B: The server requests the browser to make a new HTTP GET request
+A ->> B :HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+B -->> A: HTML CODE 
 deactivate B
+
+
 
 A ->> B: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
 activate B
